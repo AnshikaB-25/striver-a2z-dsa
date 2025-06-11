@@ -1,4 +1,5 @@
 // selection sort..... swap lowest index with first index
+// t.c = O(n^2)
 
 #include <bits/stdc++.h>
 
