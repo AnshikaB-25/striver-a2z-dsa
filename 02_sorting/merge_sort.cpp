@@ -1,4 +1,5 @@
 // T.C is O(N*log2(n))
+// divide and merge
 
 #include <bits/stdc++.h>
 
