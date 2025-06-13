@@ -23,8 +23,10 @@ int main() {
     for (int i =0 ; i<n; i++){
         cout<<arr[i]<<" ";
     }
-  // for rotating by n spaces left
 
+   
+  // for rotating by n spaces left
+   //TC (N+D)....SC...O(n)
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
@@ -44,3 +46,16 @@ public:
     }
 };
 }
+
+// OPTIMISE SPACE COMPLEXITY.. T.C O(2N)...SC O(1)
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        int d = k%n;
+        reverse(nums.begin(),nums.begin()+d);
+        reverse(nums.begin()+d,nums.end());
+        reverse(nums.begin(),nums.end());
+        
+    }
+};
