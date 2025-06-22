@@ -13,3 +13,34 @@ public:
         return -1;
     }
 };
+
+// better: hash array TC - O(2n)....SC O(n)
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int n = nums.size();
+        vector<int>hash(n+1,0);
+        for (int i =0; i<n;i++){
+            hash[nums[i]]++;
+        }
+        for (int i = 0; i<=n;i++){
+            if (hash[i]==1) return i;
+        }
+        return -1;
+    }
+};
+
+// optimal: XOR method...TC - O(n)....SC - O (1)
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int n=nums.size();
+        int XOR1=0;
+        for(int  i = 0; i<n ; i++){
+            XOR1= XOR1^nums[i];
+        }
+        return XOR1;
+        
+    }
+}; 
