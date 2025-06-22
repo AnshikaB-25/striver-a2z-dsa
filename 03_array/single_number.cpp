@@ -14,7 +14,7 @@ public:
     }
 };
 
-// better: hash array TC - O(2n)....SC O(n)
+// better: hash array TC - O(2n)....SC O(n)... alt is map too for -ve, 10^9 ELEMENTS
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
