@@ -15,3 +15,23 @@ public:
         
     }
 };
+// OPTIMAL: O(N) * LOG N (LOG N IS FOR MAP) 
+class Solution{
+public:
+    int subarraysWithxorK(vector<int> &nums, int k) {
+        int n = nums.size();
+        int xr = 0;
+        int count = 0;
+        map<int,int>mpp;
+        mpp[xr]=1;
+        for(int i = 0; i<n ; i++){
+           xr  =xr^nums[i];
+           int rem = xr^k;
+           count+=mpp[rem];
+           mpp[xr]++;
+            
+        }
+        return count;
+        
+    }
+};
