@@ -1,4 +1,5 @@
-// DOUBT
+// DOUBT 
+// SAME SOLUTION FOR PAINTER'S PARTITION AND SPLIT ARRAY
 class Solution {
    public:
     bool studentnums(vector<int> &nums, int mid, int m) {
