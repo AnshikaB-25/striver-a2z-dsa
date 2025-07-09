@@ -35,3 +35,55 @@ public:
         return -1;
     }
 };
+// BETTER APPROACH: INSTEAD OF CREATING A THIRD ARRAY JUST CALCULATE THE INDEXES YOU NEED AND THEN FIND THAT INDEX OUT
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int n1 = nums1.size();
+        int n2 = nums2.size();
+        int m = n1 + n2;
+        int ind1 = (m / 2) - 1;
+        int ind2 = m / 2;
+        int count = 0;
+        int i = 0;
+        int j = 0;
+        int ele1 = -1;
+        int ele2 = -1;
+        while (i < n1 && j < n2) {
+            if(nums1[i]< nums2[j]){
+                if (count ==  ind1)
+                    ele1 = nums1[i];
+                if (count == ind2)
+                    ele2 = nums1[i];
+                count++;
+                i++;
+            }
+            else{
+                if (count == ind1)
+                    ele1 = nums2[j];
+                if (count == ind2)
+                    ele2 = nums2[j];
+                count++;
+                j++;
+            }
+        }
+        while (i < n1) {
+            if (count ==  ind1)
+                ele1 = nums1[i];
+            if (count == ind2)
+                ele2 = nums1[i];
+            count++;
+            i++;
+        }
+        while(j<n2){
+             if (count ==  ind1)
+                    ele1 = nums2[j];
+                if (count == ind2)
+                    ele2 = nums2[j];
+                count++;
+                j++;
+        }
+        if(m%2==1) return ele2;
+        else return((double)(ele1 + ele2)/ (double)2);
+    }
+};
