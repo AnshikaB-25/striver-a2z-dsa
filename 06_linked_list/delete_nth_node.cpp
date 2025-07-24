@@ -84,3 +84,27 @@ public:
         return head;
     }
 };
+// OPTIMAL : FIRST MOVE FAST FORWARD N TIMES AND THEN INCREASE SLOW AND FAST BY 1 AND THE MOMENT FAST REACHES LAST ELEMENT SLOW IS JUST BEFORE THE ELEMENT TO BE DEELTED
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(head ==NULL || head->next == NULL) return NULL;
+
+        ListNode* fast = head;
+        while (n > 0) {
+            fast = fast->next;
+            n--;
+        }
+        if(fast == NULL) return head->next;
+        ListNode* slow = head;
+        while(fast->next!= NULL){
+            slow = slow->next;
+            fast=fast->next;
+        }
+        ListNode* temp = slow->next;
+        slow->next = temp->next;
+        temp->next = nullptr;
+        return head;
+        
+    }
+};
