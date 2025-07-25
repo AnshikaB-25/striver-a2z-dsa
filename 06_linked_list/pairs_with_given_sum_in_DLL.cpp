@@ -11,7 +11,7 @@ public:
         delete next;
     }
 };
-*/
+*/// o(2n)
 
 class Solution {
    public:
